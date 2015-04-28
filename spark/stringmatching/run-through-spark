@@ -1,0 +1,5 @@
+# Builds the JAR file for the project
+sbt package
+
+# Submits the JAR file to Spark to be run locally
+spark-submit --class "SparkApp" --master local target/scala-2.10/spark-application_2.10-1.0.jar
