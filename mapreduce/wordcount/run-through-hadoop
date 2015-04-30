@@ -1,0 +1,3 @@
+hadoop fs -rm -R /results
+hadoop jar target/hadoopapp-1.0-SNAPSHOT.jar com.rutgers.hadoop.SimpleWordCount /data/shuffled.tsv /results
+hadoop fs -cat /results/*
