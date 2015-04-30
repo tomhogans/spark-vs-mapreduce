@@ -14,7 +14,7 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.GenericOptionsParser;
 
-public class SimpleWordCount {
+public class App {
 
     public static class MapClass extends Mapper<Object, Text, Text, IntWritable> {
 
@@ -59,8 +59,8 @@ public class SimpleWordCount {
             System.exit(1);
         }
 
-        Job job = new Job(conf, SimpleWordCount.class.getSimpleName());
-        job.setJarByClass(SimpleWordCount.class);
+        Job job = new Job(conf, App.class.getSimpleName());
+        job.setJarByClass(App.class);
         job.setMapperClass(MapClass.class);
 //      job.setCombinerClass(Reduce.class);
         job.setReducerClass(Reduce.class);
