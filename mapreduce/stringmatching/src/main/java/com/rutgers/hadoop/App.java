@@ -26,9 +26,11 @@ public class App {
 
             StringTokenizer tokenizer = new StringTokenizer(value.toString());
             while (tokenizer.hasMoreTokens()) {
-                String token = tokenizer.nextToken();
-                word.set(token.toLowerCase());
-                context.write(word, new IntWritable(1));
+                String token = tokenizer.nextToken().toLowerCase();
+                word.set(token);
+                if (token.contains("new")) {
+                  context.write(word, new IntWritable(1));
+                }
             }
         }
     }
